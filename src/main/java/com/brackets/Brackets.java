@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import org.apache.logging.log4j.Logger;
 
-
+import com.brackets.init.*;
 import com.brackets.blocks.ModBlock;
 // import com.brackets.creative.BracketsTab;
 
@@ -42,19 +42,4 @@ public class Brackets
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 	}
-
-	@SubscribeEvent
-	public static void registerBlocks(RegistryEvent.Register<Block> event) {
-		event.getRegistry().registerAll(modBlock);
-	}
-
-	@SubscribeEvent
-	public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
-		event.getRegistry().registerAll(new ItemBlock(modBlock).setRegistryName(modBlock.getRegistryName()));
-	}
-
-	// @SubscribeEvent
-	// public static void registerRenders(ModelRegistryEvent event) {
-	// 	registerRender(Item.getItemFromBlock(modBlock));
-	// }
 }
