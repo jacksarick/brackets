@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import org.apache.logging.log4j.Logger;
 
 import com.brackets.init.*;
-import com.brackets.blocks.ModBlock;
 // import com.brackets.creative.BracketsTab;
 
 @Mod(modid = Brackets.MODID, name = Brackets.NAME, version = Brackets.VERSION)
@@ -28,15 +27,11 @@ public class Brackets
 
 	private static Logger logger;
 
-	public static Block modBlock;
-
 	// public static CreativeTabs tabBrackets = new BracketsTab("Bracket Blocks");
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
-		modBlock = new ModBlock("modblock").setCreativeTab(CreativeTabs.REDSTONE);
-		// ForgeRegistries(modBlock);
 	}
 
 	@EventHandler

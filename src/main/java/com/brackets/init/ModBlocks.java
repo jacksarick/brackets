@@ -2,6 +2,7 @@ package com.brackets.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
@@ -22,7 +23,7 @@ import com.brackets.blocks.*;
 @ObjectHolder(Brackets.MODID)
 public class ModBlocks {
 
-	public static final BlockModBlock MOD_BLOCK = new ModBlock();
+	public static final BlockModBlock MOD_BLOCK = (BlockModBlock) new BlockModBlock("Mod Block").setCreativeTab(CreativeTabs.REDSTONE);
 
 	@Mod.EventBusSubscriber(modid = Brackets.MODID)
 	public static class RegistrationHandler {
@@ -51,6 +52,7 @@ public class ModBlocks {
 		 */
 		@SubscribeEvent
 		public static void registerItemBlocks(final RegistryEvent.Register<Item> event) {
+
 			final ItemBlock[] items = {
 					new ItemBlock(MOD_BLOCK),
 			};
@@ -59,9 +61,10 @@ public class ModBlocks {
 
 			for (final ItemBlock item : items) {
 				final Block block = item.getBlock();
-				final ResourceLocation registryName = Preconditions.checkNotNull(block.getRegistryName(), "Block %s has null registry name", block);
+				final ResourceLocation registryName = block.getRegistryName();
 				registry.register(item.setRegistryName(registryName));
 				ITEM_BLOCKS.add(item);
 			}
 		}
 	}
+}
