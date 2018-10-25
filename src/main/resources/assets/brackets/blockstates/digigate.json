@@ -1,0 +1,10 @@
+{
+	"defaults": {
+		"model": "brackets:digigate",
+		"textures": {
+			"top": "brackets:blocks/digigate_top",
+			"front": "brackets:blocks/digigate_front",
+			"side": "brackets:blocks/digigate_side"
+		}
+	}
+}

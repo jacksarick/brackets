@@ -2,10 +2,14 @@ package com.brackets.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -23,7 +27,8 @@ import com.brackets.blocks.*;
 @ObjectHolder(Brackets.MODID)
 public class ModBlocks {
 
-	public static final BlockModBlock MOD_BLOCK = (BlockModBlock) new BlockModBlock("Mod Block").setCreativeTab(CreativeTabs.REDSTONE);
+	public static final BlockModBlock MOD_BLOCK = new BlockModBlock("mod_block");
+	public static final BlockInteractive DIGIGATE = new BlockInteractive("digigate");
 
 	@Mod.EventBusSubscriber(modid = Brackets.MODID)
 	public static class RegistrationHandler {
@@ -39,7 +44,8 @@ public class ModBlocks {
 			final IForgeRegistry<Block> registry = event.getRegistry();
 
 			final Block[] blocks = {
-				MOD_BLOCK
+				MOD_BLOCK,
+				DIGIGATE
 			};
 
 			registry.registerAll(blocks);
@@ -55,6 +61,7 @@ public class ModBlocks {
 
 			final ItemBlock[] items = {
 					new ItemBlock(MOD_BLOCK),
+					new ItemBlock(DIGIGATE)
 			};
 
 			final IForgeRegistry<Item> registry = event.getRegistry();
@@ -63,6 +70,7 @@ public class ModBlocks {
 				final Block block = item.getBlock();
 				final ResourceLocation registryName = block.getRegistryName();
 				registry.register(item.setRegistryName(registryName));
+				ModelLoader.setCustomModelResourceLocation(item, 0, new  ModelResourceLocation(Brackets.MODID + ":" + item.getRegistryName(), "inventory"));
 				ITEM_BLOCKS.add(item);
 			}
 		}
