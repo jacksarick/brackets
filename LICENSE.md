@@ -20,4 +20,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-P.S. Due to the non-infective nature of the LGPL 2.1 license that Forge is under, the Software can be licensed under MIT. The original Licenses can be found in the `license` directory.
+P.S. Due to the non-infective nature of the LGPL 2.1 license that Forge is under, the Software can be licensed under MIT. The original Licenses can be found in the `license` directory. The License for JScheme can be found within the files, and is quite permissive.
