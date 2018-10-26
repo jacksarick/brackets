@@ -28,7 +28,6 @@ public class BlockDigigate extends BlockModBlock {
 
 	public static String schemeEval(String x) {
 		try {
-
 			InputPort input = new InputPort(new StringReader(x));
   			StringWriter output = new StringWriter();
   			PrintWriter outputWriter = new PrintWriter(output, true);
@@ -37,10 +36,8 @@ public class BlockDigigate extends BlockModBlock {
 			js.load(input, outputWriter);
 			return output.toString();
 		} catch (Exception e) {
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			e.printStackTrace(pw);
-			return "Failed: " + x + " with: " + sw.toString();
+			System.out.println(e);
+			return "Failed!";
 		}
 	}
 
@@ -55,6 +52,7 @@ public class BlockDigigate extends BlockModBlock {
 
 			if (heldItem.hasTagCompound()){
 				NBTTagCompound program = heldItem.getTagCompound();
+				System.out.println(program.toString());
 				mc.player.sendMessage(new TextComponentString("> " + schemeEval(program.getString("code"))));
 				return true;
 			}

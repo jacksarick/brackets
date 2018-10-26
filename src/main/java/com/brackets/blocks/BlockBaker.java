@@ -33,8 +33,8 @@ public class BlockBaker extends BlockModBlock {
 
 				program.setString("name", "PROGRAM");
 				program.setString("desc", book.getString("title"));
-				program.setString("code", book.getTag("pages").toString());
-				output.setTagCompound(program);
+				program.setString("code", book.getTagList("pages", 8).getStringTagAt(0));
+				System.out.println(book.toString());
 
 
 				playerIn.inventory.addItemStackToInventory(output);
