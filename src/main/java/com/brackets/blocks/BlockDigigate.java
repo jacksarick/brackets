@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import com.brackets.blocks.BlockModBlock;
 
 import jscheme.Scheme;
+import jscheme.InputPort;
 import java.io.*;
 
 public class BlockDigigate extends BlockModBlock {
@@ -26,9 +27,15 @@ public class BlockDigigate extends BlockModBlock {
 	}
 
 	public static String schemeEval(String x) {
-		Scheme js = new Scheme(new String[] {"config.scm"});
 		try {
-			return (String) js.eval(x);
+			 Object[] exec = new Object[] {new InputPort(StringReader(x))};
+
+			InputPort input = new InputPort(System.in);
+  			StringWriter output = new StringWriter();
+  			PrintWriter outputWriter = new PrintWriter(output, true);
+
+			Scheme js = new Scheme(exec, input, outputWriter);
+			return output.toString();
 		} catch (Exception e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
@@ -48,7 +55,7 @@ public class BlockDigigate extends BlockModBlock {
 
 			if (heldItem.hasTagCompound()){
 				NBTTagCompound program = heldItem.getTagCompound();
-				mc.player.sendMessage(new TextComponentString(schemeEval(program.getString("code"))));
+				mc.player.sendMessage(new TextComponentString("> " + schemeEval(program.getString("code"))));
 				return true;
 			}
 

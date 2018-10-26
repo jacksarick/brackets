@@ -9,13 +9,11 @@ import java.io.*;
 
 public class Scheme extends SchemeUtils {
 
-  InputPort input = new InputPort(System.in);
-  PrintWriter output = new PrintWriter(System.out, true);
   Environment globalEnvironment = new Environment();
 
   /** Create a Scheme interpreter and load an array of files into it.
    * Also load SchemePrimitives.CODE. **/
-  public Scheme(String[] files) { 
+  public Scheme(Object[] files) { 
     Primitive.installPrimitives(globalEnvironment); 
     try {
       load(new InputPort(new StringReader(SchemePrimitives.CODE)));
@@ -29,20 +27,18 @@ public class Scheme extends SchemeUtils {
 
   /** Create a new Scheme interpreter, passing in the command line args
    * as files to load, and then enter a read eval write loop. **/
-  public static void main(String[] files) {
-    new Scheme(files).readEvalWriteLoop();
+  public static void main(String[] files, InputPort input, PrintWriter output) {
+    new Scheme(files).readEvalWriteLoop(input, output);
   }
 
   /** Prompt, read, eval, and write the result. 
    * Also sets up a catch for any RuntimeExceptions encountered. **/
-  public void readEvalWriteLoop() {
+  public void readEvalWriteLoop(InputPort input, PrintWriter output) {
     Object x;
     for(;;) {
       try {
-	output.print("> "); output.flush();
 	if (input.isEOF(x = input.read())) return;
-	write(eval(x), output, true); 
-	output.println(); output.flush();
+	write(eval(x), output, true);
       } catch (RuntimeException e) { ; }
     }
   }
@@ -59,7 +55,7 @@ public class Scheme extends SchemeUtils {
     Object x = null;
     for(;;) {
       if (in.isEOF(x = in.read())) return TRUE;
-      eval(x); 
+      write(eval(x), output, true); 
     }
   }
       
@@ -129,6 +125,8 @@ public class Scheme extends SchemeUtils {
     } else 
       return cons(eval(first(list), env), evalList(rest(list), env));
   }
+
+  Pair evalList(Object list) { return evalList(list, this.globalEnvironment); }
 
   /** Reduce a cond expression to some code which, when evaluated,
    * gives the value of the cond expression.  We do it that way to
