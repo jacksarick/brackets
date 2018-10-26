@@ -1,19 +1,14 @@
 package com.brackets.init;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -28,7 +23,9 @@ import com.brackets.blocks.*;
 public class ModBlocks {
 
 	public static final BlockModBlock MOD_BLOCK = new BlockModBlock("mod_block");
-	public static final BlockInteractive DIGIGATE = new BlockInteractive("digigate");
+	public static final BlockBaker BAKER = new BlockBaker("baker");
+
+	public static final BlockDigigate DIGIGATE = new BlockDigigate("digigate");
 
 	@Mod.EventBusSubscriber(modid = Brackets.MODID)
 	public static class RegistrationHandler {
@@ -45,7 +42,8 @@ public class ModBlocks {
 
 			final Block[] blocks = {
 				MOD_BLOCK,
-				DIGIGATE
+				DIGIGATE,
+				BAKER
 			};
 
 			registry.registerAll(blocks);
@@ -61,7 +59,8 @@ public class ModBlocks {
 
 			final ItemBlock[] items = {
 					new ItemBlock(MOD_BLOCK),
-					new ItemBlock(DIGIGATE)
+					new ItemBlock(DIGIGATE),
+					new ItemBlock(BAKER)
 			};
 
 			final IForgeRegistry<Item> registry = event.getRegistry();

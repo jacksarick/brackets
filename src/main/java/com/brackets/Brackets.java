@@ -1,22 +1,10 @@
 package com.brackets;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import org.apache.logging.log4j.Logger;
-
-import com.brackets.init.*;
-// import com.brackets.creative.BracketsTab;
 
 @Mod(modid = Brackets.MODID, name = Brackets.NAME, version = Brackets.VERSION)
 public class Brackets
