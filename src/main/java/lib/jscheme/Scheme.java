@@ -9,7 +9,16 @@ import java.io.*;
 
 public class Scheme extends SchemeUtils {
 
+  InputPort input = new InputPort(System.in);
+  StringWriter writerOutput = new StringWriter();
+  PrintWriter output = new PrintWriter(writerOutput, true);
   Environment globalEnvironment = new Environment();
+
+  public String getOutput(){
+    String out = writerOutput.toString();
+    output.flush();
+    return out;
+  }
 
   /** Create a Scheme interpreter and load an array of files into it.
    * Also load SchemePrimitives.CODE. **/
@@ -27,13 +36,13 @@ public class Scheme extends SchemeUtils {
 
   /** Create a new Scheme interpreter, passing in the command line args
    * as files to load, and then enter a read eval write loop. **/
-  public static void main(String[] files, InputPort input, PrintWriter output) {
-    new Scheme(files).readEvalWriteLoop(input, output);
+  public static void main(String[] files) {
+    new Scheme(files).readEvalWriteLoop();
   }
 
   /** Prompt, read, eval, and write the result. 
    * Also sets up a catch for any RuntimeExceptions encountered. **/
-  public void readEvalWriteLoop(InputPort input, PrintWriter output) {
+  public void readEvalWriteLoop() {
     Object x;
     for(;;) {
       try {

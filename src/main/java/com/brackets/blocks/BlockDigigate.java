@@ -28,14 +28,8 @@ public class BlockDigigate extends BlockModBlock {
 
 	public static String schemeEval(String x) {
 		try {
-			 Object[] exec = new Object[] {new InputPort(StringReader(x))};
-
-			InputPort input = new InputPort(System.in);
-  			StringWriter output = new StringWriter();
-  			PrintWriter outputWriter = new PrintWriter(output, true);
-
-			Scheme js = new Scheme(exec, input, outputWriter);
-			return output.toString();
+			Scheme js = new Scheme(new Object[] {new InputPort(new StringReader(x))});
+			return js.getOutput();
 		} catch (Exception e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
