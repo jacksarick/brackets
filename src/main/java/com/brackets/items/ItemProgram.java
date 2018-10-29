@@ -11,7 +11,7 @@ public class ItemProgram extends ItemWritableBook {
 
 	public ItemProgram() {
 		setRegistryName(Brackets.MODID, "program");
-		setUnlocalizedName("program");
+		// setUnlocalizedName("program");
 		setCreativeTab(CreativeTabs.REDSTONE);
 	}
 }

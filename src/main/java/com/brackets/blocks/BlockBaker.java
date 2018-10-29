@@ -1,23 +1,31 @@
 package com.brackets.blocks;
 
+import net.minecraft.block.BlockGlass;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.JsonToNBT;
+import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.io.*;
+import com.brackets.Brackets;
 
-public class BlockBaker extends BlockModBlock {
 
-	public BlockBaker(final String blockName) {
-		super(blockName);
+public class BlockBaker extends BlockGlass {
+
+	public BlockBaker(String blockName) {
+		super(Material.GLASS, false);
+		BlockModBlock.setBlockName(32701, blockName, this);
 	}
 
-	@Override
+	// @Override
 	public boolean onBlockActivated(final World worldIn, final BlockPos pos, final IBlockState state, final EntityPlayer playerIn, final EnumHand hand, final EnumFacing side, final float hitX, final float hitY, final float hitZ) {
 
 		final ItemStack heldItem = playerIn.getHeldItem(hand);
@@ -27,15 +35,18 @@ public class BlockBaker extends BlockModBlock {
 				|| heldItem.getItem() == Items.WRITABLE_BOOK)) {
 
 			if (heldItem.hasTagCompound()){
-				NBTTagCompound book = heldItem.getTagCompound();
+				NBTTagCompound data;
+				String json = "{display:{Name:\"Program Chip\",Lore:[\"This is will be cool\"]}, code:\"(define up10 (lambda (x) (+ 10 x))) (up10 410)\"}";
+
+			// 	NBTTagCompound book = heldItem.getTagCompound();
 				ItemStack output = new ItemStack(Items.EMERALD);
-				NBTTagCompound program = new NBTTagCompound();
 
-				program.setString("name", "PROGRAM");
-				program.setString("desc", book.getString("title"));
-				program.setString("code", book.getTagList("pages", 8).getStringTagAt(0));
-				System.out.println(book.toString());
-
+				try {
+					data = JsonToNBT.getTagFromJson(json);
+					output.setTagCompound(data);
+				} catch (NBTException e) {
+					System.out.println(e);
+		        }
 
 				playerIn.inventory.addItemStackToInventory(output);
 

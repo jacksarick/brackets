@@ -12,8 +12,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+
 
 import com.brackets.Brackets;
 import com.brackets.blocks.*;
@@ -22,7 +25,7 @@ import com.brackets.blocks.*;
 @ObjectHolder(Brackets.MODID)
 public class ModBlocks {
 
-	public static final BlockModBlock MOD_BLOCK = new BlockModBlock("mod_block");
+	public static final BlockModBlock MOD_BLOCK = new BlockModBlock("modblock");
 	public static final BlockBaker BAKER = new BlockBaker("baker");
 
 	public static final BlockDigigate DIGIGATE = new BlockDigigate("digigate");
@@ -31,6 +34,12 @@ public class ModBlocks {
 	public static class RegistrationHandler {
 		public static final Set<ItemBlock> ITEM_BLOCKS = new HashSet<>();
 
+		private static final Block[] blocks = {
+			MOD_BLOCK,
+			DIGIGATE,
+			BAKER
+		};
+
 		/**
 		 * Register this mod's {@link Block}s.
 		 *
@@ -38,14 +47,8 @@ public class ModBlocks {
 		 */
 		@SubscribeEvent
 		public static void registerBlocks(final RegistryEvent.Register<Block> event) {
+
 			final IForgeRegistry<Block> registry = event.getRegistry();
-
-			final Block[] blocks = {
-				MOD_BLOCK,
-				DIGIGATE,
-				BAKER
-			};
-
 			registry.registerAll(blocks);
 		}
 
@@ -57,21 +60,26 @@ public class ModBlocks {
 		@SubscribeEvent
 		public static void registerItemBlocks(final RegistryEvent.Register<Item> event) {
 
-			final ItemBlock[] items = {
-					new ItemBlock(MOD_BLOCK),
-					new ItemBlock(DIGIGATE),
-					new ItemBlock(BAKER)
-			};
-
 			final IForgeRegistry<Item> registry = event.getRegistry();
 
-			for (final ItemBlock item : items) {
-				final Block block = item.getBlock();
-				final ResourceLocation registryName = block.getRegistryName();
-				registry.register(item.setRegistryName(registryName));
-				ModelLoader.setCustomModelResourceLocation(item, 0, new  ModelResourceLocation(Brackets.MODID + ":" + item.getRegistryName(), "inventory"));
-				ITEM_BLOCKS.add(item);
-			}
+			// final ItemBlock[] items = {
+			// 		new ItemBlock(MOD_BLOCK),
+			// 		new ItemBlock(DIGIGATE),
+			// 		new ItemBlock(BAKER)
+			// };
+
+			ItemBlock[] items = new ItemBlock[blocks.length];
+			Arrays.setAll(items, (b) -> new ItemBlock(blocks[b]));
+
+			registry.registerAll(items);
+
+			// for (final ItemBlock item : items) {
+			// 	final Block block = item.getBlock();
+			// 	final ResourceLocation registryName = block.getRegistryName();
+			// 	registry.register(item.setRegistryName(registryName));
+			// 	ModelLoader.setCustomModelResourceLocation(item, 0, new  ModelResourceLocation(Brackets.MODID + ":" + item.getRegistryName(), "inventory"));
+			// 	ITEM_BLOCKS.add(item);
+			// }
 		}
 	}
 }

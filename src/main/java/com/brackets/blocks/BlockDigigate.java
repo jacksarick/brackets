@@ -24,6 +24,7 @@ public class BlockDigigate extends BlockModBlock {
 
 	public BlockDigigate(final String blockName) {
 		super(blockName);
+		BlockModBlock.setBlockName(32702, blockName, this);
 	}
 
 	public static String schemeEval(String x) {
