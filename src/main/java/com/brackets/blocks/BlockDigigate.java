@@ -1,6 +1,7 @@
 package com.brackets.blocks;
 
 import com.brackets.blocks.BlockSchemeBlock;
+import com.brackets.init.ModItems;
 
 import java.io.*;
 
@@ -23,8 +24,8 @@ public class BlockDigigate extends BlockSchemeBlock {
 	// public static final PropertyDirection FACING = PropertyDirection.create("facing");
 	// public String instructions = "(+ 400 20)";
 
-	public BlockDigigate(final String blockName) {
-		super(blockName);
+	public BlockDigigate(final String blockName, final boolean isActive) {
+		super(blockName, isActive);
 	}
 
 	public static String schemeEval(String x) {
@@ -48,7 +49,7 @@ public class BlockDigigate extends BlockSchemeBlock {
 		final ItemStack heldItem = playerIn.getHeldItem(hand);
 
 
-		if (!heldItem.isEmpty() && heldItem.getItem() == Items.EMERALD) {
+		if (!heldItem.isEmpty() && heldItem.getItem() == ModItems.PROGRAM) {
 			// if (!playerIn.capabilities.isCreativeMode) {}
 
 			if (heldItem.hasTagCompound()){
