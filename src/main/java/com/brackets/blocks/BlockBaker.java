@@ -1,5 +1,9 @@
 package com.brackets.blocks;
 
+import com.brackets.Brackets;
+
+import java.io.*;
+
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -13,9 +17,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.io.*;
-import com.brackets.Brackets;
 
 
 public class BlockBaker extends BlockModBlock {

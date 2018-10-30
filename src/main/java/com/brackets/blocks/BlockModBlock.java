@@ -1,13 +1,13 @@
 package com.brackets.blocks;
 
+import com.brackets.Brackets;
+
+import java.util.Objects;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
-
-import java.util.Objects;
-
-import com.brackets.Brackets;
 
 
 public class BlockModBlock extends Block {

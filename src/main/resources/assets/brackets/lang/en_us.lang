@@ -1,5 +1,4 @@
-tile.brackets:digigate.name=Digi-gate
 tile.digigate.name=Digi-gate
-tile.brackets:baker.name=Baker
-tile.brackets:modblock.name=Mod Block
+tile.baker.name=Baker
+tile.modblock.name=Mod Block
 item.brackets:program.name=Program Disk

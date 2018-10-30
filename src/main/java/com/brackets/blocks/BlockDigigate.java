@@ -1,5 +1,12 @@
 package com.brackets.blocks;
 
+import com.brackets.blocks.BlockModBlock;
+
+import java.io.*;
+
+import jscheme.InputPort;
+import jscheme.Scheme;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,11 +18,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
-import com.brackets.blocks.BlockModBlock;
-
-import jscheme.Scheme;
-import jscheme.InputPort;
-import java.io.*;
 
 public class BlockDigigate extends BlockModBlock {
 
