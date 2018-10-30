@@ -3,7 +3,7 @@
 	"defaults": {
 		"model": "minecraft:cube_all",
 		"textures": {
-			"all": "brackets:blocks/digigate_back"
+			"all": "brackets:blocks/digigate_side"
 		}
 	},
 	"variants": {

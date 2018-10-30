@@ -23,7 +23,6 @@ public class ModItems {
 
 	@Mod.EventBusSubscriber(modid = Brackets.MODID)
 	public static class RegistrationHandler {
-		public static final Set<Item> ITEMS = new HashSet<>();
 
 		/**
 		 * Register this mod's {@link Item}s.
@@ -39,10 +38,11 @@ public class ModItems {
 
 			final IForgeRegistry<Item> registry = event.getRegistry();
 
-			for (final Item item : items) {
-				registry.register(item);
-				ITEMS.add(item);
-			}
+			registry.registerAll(items);
+
+			// for(ItemB item : items){
+			// 	ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+			// }
 		}
 	}
 }

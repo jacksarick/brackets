@@ -32,7 +32,6 @@ public class ModBlocks {
 
 	@Mod.EventBusSubscriber(modid = Brackets.MODID)
 	public static class RegistrationHandler {
-		public static final Set<ItemBlock> ITEM_BLOCKS = new HashSet<>();
 
 		private static final Block[] blocks = {
 			MOD_BLOCK,
@@ -60,26 +59,15 @@ public class ModBlocks {
 		@SubscribeEvent
 		public static void registerItemBlocks(final RegistryEvent.Register<Item> event) {
 
-			final IForgeRegistry<Item> registry = event.getRegistry();
-
-			// final ItemBlock[] items = {
-			// 		new ItemBlock(MOD_BLOCK),
-			// 		new ItemBlock(DIGIGATE),
-			// 		new ItemBlock(BAKER)
-			// };
-
 			ItemBlock[] items = new ItemBlock[blocks.length];
-			Arrays.setAll(items, (b) -> new ItemBlock(blocks[b]));
+			Arrays.setAll(items, (b) -> new ItemBlock(blocks[b]).setRegistryName(blocks[b].getRegistryName()));
 
+			final IForgeRegistry<Item> registry = event.getRegistry();
 			registry.registerAll(items);
 
-			// for (final ItemBlock item : items) {
-			// 	final Block block = item.getBlock();
-			// 	final ResourceLocation registryName = block.getRegistryName();
-			// 	registry.register(item.setRegistryName(registryName));
-			// 	ModelLoader.setCustomModelResourceLocation(item, 0, new  ModelResourceLocation(Brackets.MODID + ":" + item.getRegistryName(), "inventory"));
-			// 	ITEM_BLOCKS.add(item);
-			// }
+			for(ItemBlock item : items){
+				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+			}
 		}
 	}
 }

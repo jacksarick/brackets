@@ -18,11 +18,10 @@ import java.io.*;
 import com.brackets.Brackets;
 
 
-public class BlockBaker extends BlockGlass {
+public class BlockBaker extends BlockModBlock {
 
 	public BlockBaker(String blockName) {
-		super(Material.GLASS, false);
-		BlockModBlock.setBlockName(32701, blockName, this);
+		super(blockName);
 	}
 
 	// @Override
