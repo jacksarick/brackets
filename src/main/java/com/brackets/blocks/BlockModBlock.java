@@ -5,15 +5,16 @@ import com.brackets.Brackets;
 import java.util.Objects;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 
 
-public class BlockModBlock extends Block {
+public class BlockModBlock extends BlockFurnace {
 
 	public BlockModBlock(final String blockName, final CreativeTabs tab) {
-		super(Material.IRON);
+		super(false);
 		setCreativeTab(tab);
 		setBlockName(this, blockName);
 	}

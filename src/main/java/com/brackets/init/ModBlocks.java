@@ -23,8 +23,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 @ObjectHolder(Brackets.MODID)
 public class ModBlocks {
 
-	public static final BlockModBlock MOD_BLOCK = new BlockModBlock("modblock");
-	public static final BlockBaker BAKER = new BlockBaker("baker");
+	// public static final BlockModBlock MOD_BLOCK = new BlockModBlock("modblock");
+	// public static final BlockBaker BAKER = new BlockBaker("baker");
 
 	public static final BlockDigigate DIGIGATE = new BlockDigigate("digigate");
 
@@ -32,9 +32,9 @@ public class ModBlocks {
 	public static class RegistrationHandler {
 
 		private static final Block[] blocks = {
-			MOD_BLOCK,
-			DIGIGATE,
-			BAKER
+			// MOD_BLOCK,
+			// BAKER,
+			DIGIGATE
 		};
 
 		/**

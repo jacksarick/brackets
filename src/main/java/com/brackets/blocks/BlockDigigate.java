@@ -7,19 +7,23 @@ import java.io.*;
 import jscheme.InputPort;
 import jscheme.Scheme;
 
+import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class BlockDigigate extends BlockModBlock {
+
+	// public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
 	public Minecraft mc = Minecraft.getMinecraft();
 	// public String instructions = "(+ 400 20)";

@@ -1,9 +1,9 @@
 package com.brackets;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = Brackets.MODID, name = Brackets.NAME, version = Brackets.VERSION)
