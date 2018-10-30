@@ -1,13 +1,16 @@
 package com.brackets.blocks;
 
-import com.brackets.blocks.BlockSchemeBlock;
-
-import java.io.*;
-
 import jscheme.InputPort;
 import jscheme.Scheme;
 
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.io.StringWriter;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -18,13 +21,32 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-public class BlockDigigate extends BlockSchemeBlock {
 
-	// public static final PropertyDirection FACING = PropertyDirection.create("facing");
-	// public String instructions = "(+ 400 20)";
+public class BlockSchemeBlock extends Block {
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing");
+	
+	public Minecraft mc = Minecraft.getMinecraft();
 
-	public BlockDigigate(final String blockName) {
-		super(blockName);
+	public BlockSchemeBlock(final String blockName, final CreativeTabs tab) {
+		super(false);
+		setCreativeTab(tab);
+		setBlockName(this, blockName);
+	}
+
+	public BlockSchemeBlock(final String blockName) {
+		this(blockName, CreativeTabs.REDSTONE);
+	}
+
+	/**
+	 * Set the registry name of {@code block} to {@code blockName} and the translation key to the full registry name.
+	 *
+	 * @param block     The block
+	 * @param blockName The block's name
+	 */
+	public static void setBlockName(final Block block, final String blockName) {
+		block.setRegistryName(blockName);
+		block.setTranslationKey(blockName);
 	}
 
 	public static String schemeEval(String x) {

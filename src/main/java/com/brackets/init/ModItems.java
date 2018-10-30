@@ -3,12 +3,8 @@ package com.brackets.init;
 import com.brackets.Brackets;
 import com.brackets.items.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

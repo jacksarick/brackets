@@ -1,11 +1,5 @@
 package com.brackets.blocks;
 
-import com.brackets.Brackets;
-
-import java.io.*;
-
-import net.minecraft.block.BlockGlass;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -19,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 
-public class BlockBaker extends BlockModBlock {
+public class BlockBaker extends BlockSchemeBlock {
 
 	public BlockBaker(String blockName) {
 		super(blockName);
