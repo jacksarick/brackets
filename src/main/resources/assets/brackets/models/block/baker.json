@@ -1,0 +1,7 @@
+{
+	"parent": "block/cube_top",
+	"textures": {
+		"side": "brackets:blocks/baker_side",
+		"top": "brackets:blocks/baker_top"
+	}
+}

@@ -1,20 +1,14 @@
 {
 	"forge_marker": 1,
-	// "defaults": {
-	// 	"model": "minecraft:cube_all",
-	// 	"textures": {
-	// 		"all": "brackets:blocks/digigate_side"
-	// 	}
-	// },
-	// "variants": {
-	// 	"normal": [ { } ],
-	// 	"inventory": [ { } ],
-	// 	"facing=#": [ { } ]
-	// }
+	"defaults": {
+		"model": "brackets:baker"
+	},
+
 	"variants": {
-		"facing=north": { "model": "blue_concrete" },
-		"facing=south": { "model": "blue_concrete", "y": 180 },
-		"facing=west":  { "model": "blue_concrete", "y": 270 },
-		"facing=east":  { "model": "blue_concrete", "y": 90 }
+		"inventory":  { "model": "brackets:baker" },
+		"facing=north": { "model": "brackets:baker" },
+		"facing=south": { "model": "brackets:baker", "y": 180 },
+		"facing=west":  { "model": "brackets:baker", "y": 270 },
+		"facing=east":  { "model": "brackets:baker", "y": 90 }
 	}
 }

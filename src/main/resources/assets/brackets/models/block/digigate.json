@@ -1,9 +1,8 @@
 {
-	"parent": "block/orientable",
+	"parent": "scheme-block",
 	"textures": {
 		"front": "brackets:blocks/digigate_front",
-		"side": "brackets:blocks/digigate_side",
-		"top": "brackets:blocks/digigate_side",
-		"bottom": "brackets:blocks/digigate_side"
+		"back": "brackets:blocks/generic_back",
+		"side": "brackets:blocks/generic"
 	}
 }
