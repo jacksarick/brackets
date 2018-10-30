@@ -1,7 +1,11 @@
 {
 	"forge_marker": 1,
+	"defaults": {
+		"model": "brackets:digigate"
+	},
 
 	"variants": {
+		"inventory":  { "model": "brackets:digigate" },
 		"facing=north": { "model": "brackets:digigate" },
 		"facing=south": { "model": "brackets:digigate", "y": 180 },
 		"facing=west":  { "model": "brackets:digigate", "y": 270 },

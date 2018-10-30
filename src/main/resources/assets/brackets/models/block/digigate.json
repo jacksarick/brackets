@@ -1,9 +1,9 @@
 {
-	"forge_marker": 1,
 	"parent": "block/orientable",
 	"textures": {
-			"top": "brackets:blocks/digigate_top",
-			"front": "brackets:blocks/digigate_front",
-			"side": "brackets:blocks/digigate_side"
-		}
+		"front": "brackets:blocks/digigate_front",
+		"side": "brackets:blocks/digigate_side",
+		"top": "brackets:blocks/digigate_side",
+		"bottom": "brackets:blocks/digigate_side"
+	}
 }
