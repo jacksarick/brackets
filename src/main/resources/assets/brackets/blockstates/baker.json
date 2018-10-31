@@ -5,10 +5,13 @@
 	},
 
 	"variants": {
-		"inventory":  { "model": "brackets:baker" },
-		"facing=north": { "model": "brackets:baker" },
-		"facing=south": { "model": "brackets:baker", "y": 180 },
-		"facing=west":  { "model": "brackets:baker", "y": 270 },
-		"facing=east":  { "model": "brackets:baker", "y": 90 }
+		"inventory":   { "model": "brackets:baker" },
+
+		"facing": {
+			"north": { "model": "brackets:baker" },
+			"south": { "model": "brackets:baker", "y": 180 },
+			"west": { "model": "brackets:baker", "y": 270 },
+			"east": { "model": "brackets:baker", "y": 90 }
+		}
 	}
 }

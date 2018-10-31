@@ -18,8 +18,8 @@ public class BlockDigigate extends BlockSchemeBlock {
 	// public static final PropertyDirection FACING = PropertyDirection.create("facing");
 	// public String instructions = "(+ 400 20)";
 
-	public BlockDigigate(final String blockName, final boolean isActive) {
-		super(blockName, isActive);
+	public BlockDigigate(final String blockName) {
+		super(blockName);
 	}
 
 	@Override

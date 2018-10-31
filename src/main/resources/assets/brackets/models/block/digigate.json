@@ -1,5 +1,5 @@
 {
-	"parent": "scheme-block",
+	"parent": "brackets:block/scheme-block",
 	"textures": {
 		"front": "brackets:blocks/digigate_front",
 		"back": "brackets:blocks/generic_back",

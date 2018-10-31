@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+import com.brackets.init.ModItems;
+
 import jscheme.InputPort;
 import jscheme.Scheme;
 import net.minecraft.block.Block;
@@ -16,25 +18,29 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 
 public class BlockSchemeBlock extends Block {
 	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing");
-	public static final PropertyBool HAS_DISK = PropertyBool.create("has_disk");
 	
 	public Minecraft mc = Minecraft.getMinecraft();
 
-	public BlockSchemeBlock(final String blockName,final boolean isActive) {
+	public BlockSchemeBlock(final String blockName) {
 		super(Material.IRON);
 		setCreativeTab(CreativeTabs.REDSTONE);
 		setBlockName(this, blockName);
 
 		IBlockState baseState = this.blockState.getBaseState();
-		setDefaultState(baseState.withProperty(FACING, EnumFacing.NORTH));
+		this.setDefaultState(baseState.withProperty(FACING, EnumFacing.NORTH));
 	}
 
 	/**
@@ -47,6 +53,7 @@ public class BlockSchemeBlock extends Block {
 		block.setRegistryName(blockName);
 		block.setTranslationKey(blockName);
 	}
+	
 
 	/**
 	  * Scheme
@@ -99,6 +106,7 @@ public class BlockSchemeBlock extends Block {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
+	@Override
 	protected BlockStateContainer createBlockState(){
 		return new BlockStateContainer(this, new IProperty[] {FACING});
 	}

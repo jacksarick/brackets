@@ -20,8 +20,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModBlocks {
 
 	// public static final BlockModBlock MOD_BLOCK = new BlockModBlock("modblock");
-	public static final BlockBaker BAKER = new BlockBaker("baker", false);
-	public static final BlockDigigate DIGIGATE = new BlockDigigate("digigate", false);
+	public static final BlockBaker BAKER = new BlockBaker("baker");
+	public static final BlockDigigate DIGIGATE = new BlockDigigate("digigate");
 
 	@Mod.EventBusSubscriber(modid = Brackets.MODID)
 	public static class RegistrationHandler {

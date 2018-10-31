@@ -5,10 +5,13 @@
 	},
 
 	"variants": {
-		"inventory":  { "model": "brackets:digigate" },
-		"facing=north": { "model": "brackets:digigate" },
-		"facing=south": { "model": "brackets:digigate", "y": 180 },
-		"facing=west":  { "model": "brackets:digigate", "y": 270 },
-		"facing=east":  { "model": "brackets:digigate", "y": 90 }
+		"inventory":   { "model": "brackets:digigate" },
+
+		"facing": {
+			"north": { "model": "brackets:digigate" },
+			"south": { "model": "brackets:digigate", "y": 180 },
+			"west": { "model": "brackets:digigate", "y": 270 },
+			"east": { "model": "brackets:digigate", "y": 90 }
+		}
 	}
 }
