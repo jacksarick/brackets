@@ -72,7 +72,7 @@ public class BlockBaker extends BlockSchemeBlock {
     @SuppressWarnings("incomplete-switch")
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand){
         if (this.hasDisk){
-            worldIn.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, (double)pos.getX() + 0.5D, (double)pos.getY() + 1.0D, (double)pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
+            worldIn.spawnParticle(EnumParticleTypes.REDSTONE, (double)pos.getX() + 0.5D, (double)pos.getY() + 1.0D, (double)pos.getZ() + 0.5D, rand.nextDouble()/4.0D, 0.2D, rand.nextDouble()/4.0D);
         }
     }
 }

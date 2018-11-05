@@ -5,8 +5,12 @@ import com.brackets.init.ModItems;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryEnderChest;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.stats.StatList;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityEnderChest;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -40,8 +44,33 @@ public class BlockDigigate extends BlockSchemeBlock {
 
 			mc.player.sendMessage(new TextComponentString("That's empty"));
 			return false;
+		} else {
+	        InventoryEnderChest inventoryenderchest = playerIn.getInventoryEnderChest();
+	        TileEntity tileentity = worldIn.getTileEntity(pos);
+
+	        if (inventoryenderchest != null && tileentity instanceof TileEntityEnderChest) {
+	            if (worldIn.getBlockState(pos.up()).doesSideBlockChestOpening(worldIn, pos.up(), EnumFacing.DOWN)) {
+	                return true;
+	            } else if (worldIn.isRemote) {
+	                return true;
+	            } else {
+	                inventoryenderchest.setChestTileEntity((TileEntityEnderChest)tileentity);
+	                playerIn.displayGUIChest(inventoryenderchest);
+	                playerIn.addStat(StatList.ENDERCHEST_OPENED);
+	                return true;
+	            }
+	        } else {
+	            return true;
+	        }
 		}
 
-		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
+		//return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
 	}
+
+    /**
+     * Returns a new instance of a block's tile entity class. Called on placing the block.
+     */
+    public TileEntity createNewTileEntity(World worldIn, int meta){
+        return new TileEntityEnderChest();
+    }
 }

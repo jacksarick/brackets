@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapless",
+    "key":[
+        {
+            "item": "minecraft:iron_ingot",
+        },
+        {
+            "item": "brackets:program",
+        }
+    ],
+    "result":
+    {
+        "item": "brackets:program",
+        "count": 1,
+    }
+}
